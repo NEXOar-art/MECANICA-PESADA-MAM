@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Taller Mecánico G.F Racing - Especialistas en diagnóstico avanzado, mecánica integral y upgrades de performance. Turnos rápidos vía WhatsApp.">
-    <title>G.F Racing | Taller Mecánico Performance</title>
+    <meta name="description" content="Diagnóstico Automotor G.F - Especialistas en diagnóstico avanzado, mecánica integral y upgrades de performance. Turnos rápidos vía WhatsApp.">
+    <title>Diagnóstico Automotor G.F</title>
     <!-- Tailwind CSS CDN (para desarrollo rápido y single-file) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -222,7 +222,7 @@
         </div>
     </header>
 
-    <!-- CENTRO DE ASESORAMIENTO (textos centrados) -->
+    <!-- CENTRO DE ASESORAMIENTO -->
     <section id="asesoramiento" class="py-16 md:py-24 bg-gray-900 border-t border-gray-800 section-padding-mobile">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -357,6 +357,40 @@
                                     <option>Olor raro (quemado, nafta, etc.)</option>
                                 </optgroup>
                             </select>
+
+                            <!-- BOTÓN DESPLEGABLE PARA TRANSPORTE PESADO -->
+                            <details class="mt-6">
+                                <summary class="cursor-pointer bg-primary-blue/20 hover:bg-primary-blue/30 text-primary-blue font-bold py-3 px-4 rounded-lg text-center transition">
+                                    Transporte Pesado
+                                </summary>
+                                <select id="inputHeavyContext" class="input-glow w-full bg-gray-900 border border-gray-700 p-4 rounded-lg outline-none mt-4 text-gray-300">
+                                    <option value="" disabled selected>Seleccioná falla principal en transporte pesado (opcional)</option>
+                                    <optgroup label="Fugas y Fluidos">
+                                        <option>Fuga de aceite, refrigerante o combustible</option>
+                                        <option>Consumo excesivo de refrigerante (posible obstrucción DPF)</option>
+                                        <option>Nivel bajo de DEF (SCR)</option>
+                                    </optgroup>
+                                    <optgroup label="Frenos y Suspensión">
+                                        <option>Desgaste acelerado en pastillas/discos de freno</option>
+                                        <option>Inestabilidad en suspensión</option>
+                                        <option>Pérdida de presión en sistema de frenos de aire</option>
+                                        <option>Problemas en secador de aire o humedad</option>
+                                    </optgroup>
+                                    <optgroup label="Motor y Turbocargador">
+                                        <option>Pérdida de potencia o humo negro/azul (turbo obstruido)</option>
+                                        <option>Ruido sospechoso en turbo o motor</option>
+                                        <option>Obstrucción en filtro de aire o escape</option>
+                                    </optgroup>
+                                    <optgroup label="Eléctrico y Neumáticos">
+                                        <option>Batería débil o cables deteriorados</option>
+                                        <option>Presión incorrecta o desgaste irregular en neumáticos</option>
+                                    </optgroup>
+                                    <optgroup label="Chasis y Postratamiento">
+                                        <option>Fisuras o soldaduras defectuosas en chasis/trailer</option>
+                                        <option>Problemas en sistema postratamiento (DOC, DPF, SCR)</option>
+                                    </optgroup>
+                                </select>
+                            </details>
                         </div>
                         <div class="fade-in-up stagger-3">
                             <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-user text-primary-blue"></i> 3. Tus Datos de Contacto</h3>
@@ -379,16 +413,21 @@
         <div class="container mx-auto px-4 text-center">
             <h3 class="font-display font-bold text-3xl text-white mb-4 fade-in-up">¿Dónde Estamos?</h3>
             <p class="text-gray-400 mb-6 text-base md:text-lg fade-in-up">Lunes a Viernes 10:00 - 22:00 hs | Sábado 10:00 - 21:00 hs | Domingo Cerrado</p>
-            <a href="https://maps.app.goo.gl/7u6mUCeVQYhNP7EP9" target="_blank" class="bg-primary-blue text-primary-dark px-8 py-4 rounded-lg font-bold hover:shadow-neon transition flex items-center gap-3 mx-auto fade-in-up btn-full-mobile">
-                <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
-            </a>
+            <div class="flex flex-col gap-4">
+                <a href="https://maps.app.goo.gl/7u6mUCeVQYhNP7EP9" target="_blank" class="bg-primary-blue text-primary-dark px-8 py-4 rounded-lg font-bold hover:shadow-neon transition flex items-center justify-center gap-3 mx-auto fade-in-up btn-full-mobile">
+                    <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+                </a>
+                <a href="https://maps.app.goo.gl/kAMnCWAVYBUcpqxX8" target="_blank" class="border border-primary-blue text-primary-blue px-8 py-4 rounded-lg font-bold hover:bg-primary-blue hover:text-primary-dark transition flex items-center justify-center gap-3 mx-auto fade-in-up btn-full-mobile">
+                    <i class="fa-solid fa-star"></i> Dejanos tu reseña
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-primary-dark text-gray-500 py-12 text-center">
         <div class="container mx-auto px-4">
-            <p class="text-white font-display font-bold text-2xl glow-text">G.F RACING Performance Garage</p>
+            <p class="text-white font-display font-bold text-2xl glow-text">G.F Digitalizacion y ecosistemas conectados</p>
             <p class="text-sm mt-4">&copy; 2026 Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -456,6 +495,7 @@
                 const km = document.getElementById('inputKm').value || 'No especificado';
                 const symptoms = document.getElementById('inputSymptoms').value || 'No especificado';
                 const context = document.getElementById('inputContext').options[document.getElementById('inputContext').selectedIndex]?.text || 'No seleccionado';
+                const heavyContext = document.getElementById('inputHeavyContext')?.options[document.getElementById('inputHeavyContext').selectedIndex]?.text || 'No seleccionado (transporte pesado)';
                 const name = document.getElementById('inputName').value || 'No especificado';
                 const phone = document.getElementById('inputPhone').value || 'No especificado';
 
@@ -466,7 +506,8 @@
                                 `🚘 *Vehículo:* ${vehicle}\n` +
                                 `🛣️ *Kilometraje:* ${km} km\n\n` +
                                 `⚠️ *Síntomas:* \n${symptoms}\n\n` +
-                                `🔧 *Tipo de falla:* ${context}\n\n` +
+                                `🔧 *Tipo de falla:* ${context}\n` +
+                                `🚛 *Falla transporte pesado:* ${heavyContext}\n\n` +
                                 `💰 ¡Quiero diagnóstico y presupuesto aproximado! 🛠️\n\n` +
                                 `Gracias por contactarnos, te respondemos al instante 🚀`;
 
@@ -496,3 +537,4 @@
     </script>
 </body>
 </html>
+
