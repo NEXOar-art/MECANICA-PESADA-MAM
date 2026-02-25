@@ -1,2 +1,2 @@
-# EUDECAM
+# Mecanica pesada mam
 TALLER DE DISGNOSTICO DEL AUTOMOTOR
