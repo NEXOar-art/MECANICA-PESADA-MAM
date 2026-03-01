@@ -373,8 +373,9 @@ font-size: 0.8125rem;
 <div class="emergency-banner py-3 px-4 relative z-50">
 <div class="container mx-auto flex items-center justify-center gap-3">
 <i class="fa-solid fa-truck-medical banner-icon text-primary-yellow text-lg sm:text-xl"></i>
+<!-- ✅ BANNER ACTUALIZADO CON NUEVO TEXTO -->
 <span class="banner-text text-primary-red font-display font-bold text-xs sm:text-sm md:text-base uppercase tracking-wider">
-<i class="fa-solid fa-clock mr-2"></i>Servicio de Auxilio Vial las 24 HS, 24/7 en Todo el territorio Nacional<i class="fa-solid fa-clock ml-2"></i>
+<i class="fa-solid fa-clock mr-2"></i>Auxilio vial express las 24 horas 24/7 con respuesta inmediata en Buenos Aires y en cada punto del territorio Argentino<i class="fa-solid fa-clock ml-2"></i>
 </span>
 <i class="fa-solid fa-truck-medical banner-icon text-primary-yellow text-lg sm:text-xl"></i>
 </div>
@@ -868,16 +869,17 @@ e.target.reset();
 }, 1000);
 });
 // SISTEMA DE ESTADO INTELIGENTE - ABIERTO/CERRADO
+// ✅ HORARIO ACTUALIZADO: Lunes a Viernes 09:00 a 18:00, Sábado y Domingo cerrado
 const checkStatus = () => {
 const now = new Date();
 const hour = now.getHours();
 const minutes = now.getMinutes();
 const day = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
-// Horario de atención: Lunes a Viernes de 8:00 a 18:00
-const openingHour = 8;
-const closingHour = 18;
+// ✅ HORARIO DE ATENCIÓN ACTUALIZADO
+const openingHour = 9; // 09:00 hs
+const closingHour = 18; // 18:00 hs
 const currentTime = hour + (minutes / 60);
-// Verificar si es día hábil (1-5) y dentro del horario
+// Verificar si es día hábil (1-5 = Lunes a Viernes) y dentro del horario
 const isBusinessDay = (day >= 1 && day <= 5);
 const isBusinessHours = (currentTime >= openingHour && currentTime < closingHour);
 const isOpen = isBusinessDay && isBusinessHours;
@@ -898,7 +900,8 @@ statusTextDesktop.textContent = 'Abierto ahora';
 statusTextDesktop.className = 'text-green-600 font-bold';
 }
 if (statusBarMobile) {
-statusBarMobile.textContent = '✓ Abierto ahora - Lun a Vie 8:00 a 18:00';
+// ✅ HORARIO ACTUALIZADO EN EL MENSAJE
+statusBarMobile.textContent = '✓ Abierto ahora - Lun a Vie 09:00 a 18:00';
 statusBarMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-green-100 text-green-600 border-t border-green-300';
 }
 if (statusDotMobileMenu) {
@@ -921,17 +924,20 @@ if (statusBarMobile) {
 // Calcular cuándo abre
 let nextOpenDay = '';
 let nextOpenTime = '';
+// ✅ HORARIO ACTUALIZADO A 09:00 HS
 if (day === 0) {
 // Domingo - abre mañana (Lunes)
 nextOpenDay = 'Mañana (Lun)';
+nextOpenTime = '09:00 hs';
 } else if (day === 6) {
 // Sábado - abre pasado mañana (Lunes)
 nextOpenDay = 'Lunes';
+nextOpenTime = '09:00 hs';
 } else {
-// Entre semana - abre mañana
+// Entre semana (Lun-Vie) pero fuera de horario - abre mañana
 nextOpenDay = 'Mañana';
+nextOpenTime = '09:00 hs';
 }
-nextOpenTime = '8:00 hs';
 statusBarMobile.textContent = `✗ Cerrado - Abre ${nextOpenDay} ${nextOpenTime}`;
 statusBarMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-red-100 text-red-600 border-t border-red-300';
 }
@@ -951,6 +957,7 @@ setInterval(checkStatus, 60000);
 </script>
 </body>
 </html>
+
 
 
 
